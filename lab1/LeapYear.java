@@ -17,15 +17,15 @@ public class LeapYear {
     */
     public static boolean isLeapYear(int year) { 
         if (year % 400 = 0) {
-            return True
+            return True;
         }
         if (year % 100 = 0 & year % 400 != 0) {
-            return False
+            return False;
         }
         if (year % 4 = 0 & year % 100 != 0) {
-            return False
+            return False;
         } 
-        else {return False
+        else {return False;
         }
     }
     /** Must be provided an integer as a command line argument ARGS. */
