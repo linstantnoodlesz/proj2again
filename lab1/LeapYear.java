@@ -16,16 +16,16 @@ public class LeapYear {
     /** determines if a given year is a leap year and returns True/False value
     */
     public static boolean isLeapYear(int year) { 
-        if (year % 400 = 0) {
-            return True;
+        if (year % 400 == 0) {
+            return true;
         }
-        if (year % 100 = 0 & year % 400 != 0) {
-            return False;
+        if (year % 100 == 0 & year % 400 != 0) {
+            return false;
         }
-        if (year % 4 = 0 & year % 100 != 0) {
-            return False;
+        if (year % 4 == 0 & year % 100 != 0) {
+            return false;
         } 
-        else {return False;
+        else {return false;
         }
     }
     /** Must be provided an integer as a command line argument ARGS. */
