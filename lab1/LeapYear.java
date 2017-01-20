@@ -23,7 +23,7 @@ public class LeapYear {
             return false;
         }
         if (year % 4 == 0 & year % 100 != 0) {
-            return false;
+            return true;
         } 
         else {return false;
         }
