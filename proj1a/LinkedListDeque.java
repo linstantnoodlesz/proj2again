@@ -37,6 +37,7 @@ public class LinkedListDeque <Var> {
 
     /** creates empty LinkedListDeque */
     public LinkedListDeque() {
+        sentinel = new SentinelNode();
         sentinel.front = null;
         sentinel.back = null;
         size = 0;
