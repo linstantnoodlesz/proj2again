@@ -79,6 +79,19 @@ public class LinkedListDequeTest {
 		printTestStatus(passed);
 	}
 
+	public static void getTest() {
+
+		LinkedListDeque.addLast(0)
+		LinkedListDeque.removeFirst()     ==> 0
+		LinkedListDeque.addLast(3)
+		LinkedListDeque.addFirst(4)
+		LinkedListDeque.get(1)
+		LinkedListDeque.removeFirst()     ==> 4
+		LinkedListDeque.addFirst(7)
+		LinkedListDeque.removeLast()      ==> 3
+		LinkedListDeque.removeLast()
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Running tests.\n");
 		addIsEmptySizeTest();

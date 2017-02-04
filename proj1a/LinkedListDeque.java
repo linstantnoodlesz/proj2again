@@ -137,14 +137,13 @@ public class LinkedListDeque<Item> {
     /** same as get(int index) but uses recursion */
     public Item getRecursive(int index) {
         ItemNode p = sentinel.front;
-        ItemNode k = sentinel.front;
         if (index > size) {
             return null;
         }
         if (index == 0) {
             return p.item;
         }
-        k = p.next;
+        p = p.next;
         return getRecursive(index - 1);
     }
 }
