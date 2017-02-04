@@ -2,9 +2,7 @@
  * Created by gilbertlin on 2/2/17.
  */
 
-import com.sun.tools.javac.jvm.Items;
 
-import javax.lang.model.element.VariableElement;
 
 /** creates LinkedListDeque, which is a double ended queue formed with LinkedLists */
 public class LinkedListDeque <Item> {
@@ -72,8 +70,8 @@ public class LinkedListDeque <Item> {
         ItemNode newLast = new ItemNode(x, null, sentinel.back);
         sentinel.back = newLast;
         size += 1;
-
         }
+
     /** returns whether a deque is empty or not */
     public boolean isEmpty() {
         if (size == 0) {
