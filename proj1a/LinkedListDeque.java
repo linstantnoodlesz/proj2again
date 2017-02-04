@@ -2,8 +2,6 @@
  * Created by gilbertlin on 2/2/17.
  */
 
-
-
 /** creates LinkedListDeque, which is a double ended queue formed with LinkedLists */
 public class LinkedListDeque <Item> {
     private class ItemNode {
@@ -52,13 +50,6 @@ public class LinkedListDeque <Item> {
         size = 0;
     }
 
-    /** Constructs a LinkedListDeque */
-    public LinkedListDeque(Item x) {
-        sentinel.front = new ItemNode(x, null, null);
-        sentinel.back = sentinel.front;
-        size = 1;
-    }
-
     /** adds some x to the front of the list */
     public void addFirst(Item x) {
         ItemNode newFront = new ItemNode(x, sentinel.front, null);
@@ -92,24 +83,24 @@ public class LinkedListDeque <Item> {
 
     /** Removes and returns the item at the front of the Deque. If no such item exists, returns null. */
      public Item removeFirst() {
-        if (sentinel.front.item != null) {
-            Item removeditem = sentinel.front.item;
-            sentinel.front = sentinel.front.next;
-            size -= 1;
-            return removeditem;
+        if (isEmpty()) {
+            return null;
         }
-        return null;
+         Item removeditem = sentinel.front.item;
+         sentinel.front = sentinel.front.next;
+         size -= 1;
+         return removeditem;
     }
     /** Removes and returns the item at the back of the Deque. If no such item exists, returns null. */
     public Item removeLast() {
-         if (sentinel.back.item != null) {
-             Item removeditem = sentinel.back.item;
-             sentinel.back = sentinel.back.before;
-             sentinel.back.next = null;
-             size -= 1;
-             return removeditem;
+         if (isEmpty()) {
+             return null;
          }
-         return null;
+        Item removeditem = sentinel.back.item;
+        sentinel.back = sentinel.back.before;
+        sentinel.back.next = null;
+        size -= 1;
+        return removeditem;
     }
 
     /** Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth. If no such item exists, returns null. */
