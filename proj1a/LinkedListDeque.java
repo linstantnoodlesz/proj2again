@@ -133,18 +133,20 @@ public class LinkedListDeque<Item> {
         }
         return p.item;
     }
-
-    /** same as get(int index) but uses recursion */
-    public Item getRecursive(int index) {
-        ItemNode p = sentinel.front;
+    /** helper function for getRecursive */
+    public Item gethelper(int index, ItemNode p) {
         if (index > size) {
             return null;
         }
         if (index == 0) {
             return p.item;
         }
-        p = p.next;
-        return getRecursive(index - 1);
+        return gethelper(index - 1, p.next);
+    }
+
+    /** same as get(int index) but uses recursion */
+    public Item getRecursive(int index) {
+        return gethelper(index, sentinel.front);
     }
 }
 
