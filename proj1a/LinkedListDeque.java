@@ -86,11 +86,12 @@ public class LinkedListDeque <Item> {
         if (isEmpty()) {
             return null;
         }
-         Item removeditem = sentinel.front.item;
-         sentinel.front = sentinel.front.next;
-         size -= 1;
-         return removeditem;
+        Item removeditem = sentinel.front.item;
+        sentinel.front = sentinel.front.next;
+        size -= 1;
+        return removeditem;
     }
+
     /** Removes and returns the item at the back of the Deque. If no such item exists, returns null. */
     public Item removeLast() {
          if (isEmpty()) {
@@ -116,6 +117,7 @@ public class LinkedListDeque <Item> {
         }
         return p.item;
     }
+
     /** same as get(int index) but uses recursion */
     public Item getRecursive(int index) {
         ItemNode p = sentinel.front;
@@ -129,6 +131,5 @@ public class LinkedListDeque <Item> {
         k = p.next;
         return getRecursive(index - 1);
     }
-
 }
 
