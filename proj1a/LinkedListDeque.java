@@ -9,15 +9,18 @@ public class LinkedListDeque <Var> {
     private class ItemNode {
         public Var item;
         public ItemNode next;
+        public ItemNode before;
 
         public ItemNode() {
             item = null;
             next = null;
+            before = null;
         }
 
-        public ItemNode(Var i, ItemNode n) {
+        public ItemNode(Var i, ItemNode n, ItemNode b) {
             item = i;
             next = n;
+            before = b;
         }
     }
 
@@ -45,20 +48,20 @@ public class LinkedListDeque <Var> {
 
     /** Constructs a LinkedListDeque */
     public LinkedListDeque(Var x) {
-        sentinel.front = new ItemNode(x, null);
+        sentinel.front = new ItemNode(x, null, null);
         sentinel.back = sentinel.front;
         size = 1;
     }
 
     /** adds some x to the front of the list */
     public void addFirst(Var x) {
-        ItemNode newFront = new ItemNode(x, sentinel.front);
+        ItemNode newFront = new ItemNode(x, sentinel.front, null);
         sentinel.front = newFront;
         size += 1;
     }
     /** adds some x to the back of the list */
     public void addLast(Var x) {
-        ItemNode newLast = new ItemNode(x, null);
+        ItemNode newLast = new ItemNode(x, null, sentinel.back);
         sentinel.back = newLast;
         size += 1;
 
@@ -95,11 +98,8 @@ public class LinkedListDeque <Var> {
     public Var removeLast() {
          if (sentinel.back.item != null) {
              Var removeditem = sentinel.back.item;
-             ItemNode p = sentinel.front;
-             while (p.next != sentinel.back) {
-                 p = p.next;
-             }
-             sentinel.back = p;
+             sentinel.back = sentinel.back.before;
+             sentinel.back.next = null;
              size -= 1;
              return removeditem;
          }
@@ -108,7 +108,7 @@ public class LinkedListDeque <Var> {
 
     /** Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth. If no such item exists, returns null. */
     public Var get(int index) {
-        if (index > size) {
+        if (index > size()) {
             return null;
         }
         int k = 0;
@@ -119,7 +119,7 @@ public class LinkedListDeque <Var> {
         }
         return p.item;
     }
-
+    /** same as get(int index) but uses recursion */
     public Var getRecursive(int index) {
         ItemNode p = sentinel.front;
         ItemNode k = sentinel.front;
