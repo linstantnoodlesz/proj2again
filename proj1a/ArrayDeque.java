@@ -6,8 +6,8 @@ public class ArrayDeque<Item> {
 
     private int size;
 
-    private int front = (items.length / 2) - 1;
-    private int back = (items.length / 2) + 1;
+    private int front;
+    private int back;
 
     /** Returns the number of items in the Deque. */
     public int size() {
@@ -16,6 +16,8 @@ public class ArrayDeque<Item> {
     /** Creates empty ArrayDeque. */
     public ArrayDeque() {
         items = (Item[]) new Object[8];
+        front = (items.length / 2) - 1;
+        back = (items.length / 2) + 1;
         size = 0;
     }
 
