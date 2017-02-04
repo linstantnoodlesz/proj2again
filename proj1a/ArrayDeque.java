@@ -6,8 +6,8 @@ public class ArrayDeque<Item> {
 
     private int size;
 
-    private int front = 0;
-    private int back = 0;
+    private int front = items.length / 2 - 1;
+    private int back = items.length / 2 + 1;
 
     /** Returns the number of items in the Deque. */
     public int size() {
@@ -30,7 +30,7 @@ public class ArrayDeque<Item> {
     /** Resizes an array to target capacity */
     private void resize(int capacity) {
         Item[] k = (Item[]) new Object[capacity];
-        System.arraycopy(items, 0, k, 0, size);
+        System.arraycopy(items, front, k, items.length - (size / 2), size);
         items = k;
     }
     /** Adds an item to the front of the Deque. */
@@ -41,11 +41,9 @@ public class ArrayDeque<Item> {
         if (isEmpty()) {
             items[front] = x;
         }
-
-        front = (front - 1 + items.length) % items.length;
         items[front] = x;
-        back++;
-        size += 1;
+        front++;
+        size++;
     }
 
     /** Adds an item to the back of the Deque. */
@@ -55,7 +53,7 @@ public class ArrayDeque<Item> {
         }
         items[back] = x;
         back++;
-        size += 1;
+        size++;
     }
 
     /** Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth.
