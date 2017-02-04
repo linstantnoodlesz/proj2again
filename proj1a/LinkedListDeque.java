@@ -134,7 +134,7 @@ public class LinkedListDeque<Item> {
         return p.item;
     }
     /** helper function for getRecursive */
-    public Item gethelper(int index, ItemNode p) {
+    private Item gethelper(int index, ItemNode p) {
         if (index > size) {
             return null;
         }
