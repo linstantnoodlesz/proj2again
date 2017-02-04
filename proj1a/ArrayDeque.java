@@ -46,7 +46,7 @@ public class ArrayDeque<Var> {
     /** Adds an item to the front of the Deque. */
     public void addFirst(Var x) {
         if (size == items.length) {
-            resize(size + 1);
+            resize(size * 2);
         }
         if (isEmpty()) {
             items[front] = x;
@@ -61,7 +61,7 @@ public class ArrayDeque<Var> {
     /** Adds an item to the back of the Deque. */
     public void addLast(Var x) {
         if (size == items.length) {
-            resize(size + 1);
+            resize(size * 2);
         }
         back = back % items.length;
         items[back] = x;
