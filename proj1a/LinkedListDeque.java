@@ -98,6 +98,9 @@ public class LinkedListDeque<Item> {
         }
         Item removeditem = sentinel.front.item;
         sentinel.front = sentinel.front.next;
+        if (sentinel.front.next != null) {
+            sentinel.front.before = null;
+        }
         size -= 1;
         return removeditem;
     }
