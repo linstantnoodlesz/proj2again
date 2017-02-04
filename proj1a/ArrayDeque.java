@@ -1,8 +1,8 @@
 /**
  * Created by gilbertlin on 2/3/17.
  */
-public class ArrayDeque<Var> {
-    private Var[] items;
+public class ArrayDeque<Item> {
+    private Item[] items;
 
     private int size;
 
@@ -15,7 +15,7 @@ public class ArrayDeque<Var> {
     }
     /** Creates empty ArrayDeque. */
     public ArrayDeque() {
-        items = (Var[]) new Object[8];
+        items = (Item[]) new Object[8];
         size = 0;
     }
 
@@ -29,12 +29,12 @@ public class ArrayDeque<Var> {
 
     /** Resizes an array to target capacity */
     private void resize(int capacity) {
-        Var[] k = (Var[]) new Object[capacity];
+        Item[] k = (Item[]) new Object[capacity];
         System.arraycopy(items, 0, k, 0, size);
         items = k;
     }
     /** Adds an item to the front of the Deque. */
-    public void addFirst(Var x) {
+    public void addFirst(Item x) {
         if (size == items.length) {
             resize(size * 2);
         }
@@ -50,7 +50,7 @@ public class ArrayDeque<Var> {
     }
 
     /** Adds an item to the back of the Deque. */
-    public void addLast(Var x) {
+    public void addLast(Item x) {
         if (size == items.length) {
             resize(size * 2);
         }
@@ -60,7 +60,7 @@ public class ArrayDeque<Var> {
     }
 
     /** Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth. If no such item exists, returns null. */
-    public Var get(int index) {
+    public Item get(int index) {
         if (index > size()) {
             return null;
         }
@@ -68,11 +68,11 @@ public class ArrayDeque<Var> {
     }
 
     /** Removes and returns the item at the front of the Deque. If no item exists, return null */
-    public  Var removeFirst() {
+    public Item removeFirst() {
         if (isEmpty()) {
             return null;
         }
-        Var removeditem = items[front];
+        Item removeditem = items[front];
         front = (front + 1) % items.length;
         back--;
         size -= 1;
@@ -80,11 +80,11 @@ public class ArrayDeque<Var> {
     }
 
     /** Removes and returns the item at the back of the Deque. If no item exists, return null */
-    public Var removeLast() {
+    public Item removeLast() {
         if (isEmpty()) {
             return null;
         }
-        Var removeditem = items[back];
+        Item removeditem = items[back];
         items[back] = null;
         back--;
         size -= 1;

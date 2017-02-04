@@ -2,12 +2,14 @@
  * Created by gilbertlin on 2/2/17.
  */
 
+import com.sun.tools.javac.jvm.Items;
+
 import javax.lang.model.element.VariableElement;
 
 /** creates LinkedListDeque, which is a double ended queue formed with LinkedLists */
-public class LinkedListDeque <Var> {
+public class LinkedListDeque <Item> {
     private class ItemNode {
-        public Var item;
+        public Item item;
         public ItemNode next;
         public ItemNode before;
 
@@ -17,7 +19,7 @@ public class LinkedListDeque <Var> {
             before = null;
         }
 
-        public ItemNode(Var i, ItemNode n, ItemNode b) {
+        public ItemNode(Item i, ItemNode n, ItemNode b) {
             item = i;
             next = n;
             before = b;
@@ -26,8 +28,14 @@ public class LinkedListDeque <Var> {
 
     /** creates sentinel node; the first item is found at sentinel.next */
     private class SentinelNode {
-        public ItemNode front;
-        public ItemNode back;
+        private ItemNode front;
+        private ItemNode back;
+        public ItemNode getFront() {
+            return front;
+        }
+        public ItemNode getBack() {
+            return back;
+        }
 
     }
     private int size;
@@ -47,20 +55,20 @@ public class LinkedListDeque <Var> {
     }
 
     /** Constructs a LinkedListDeque */
-    public LinkedListDeque(Var x) {
+    public LinkedListDeque(Item x) {
         sentinel.front = new ItemNode(x, null, null);
         sentinel.back = sentinel.front;
         size = 1;
     }
 
     /** adds some x to the front of the list */
-    public void addFirst(Var x) {
+    public void addFirst(Item x) {
         ItemNode newFront = new ItemNode(x, sentinel.front, null);
         sentinel.front = newFront;
         size += 1;
     }
     /** adds some x to the back of the list */
-    public void addLast(Var x) {
+    public void addLast(Item x) {
         ItemNode newLast = new ItemNode(x, null, sentinel.back);
         sentinel.back = newLast;
         size += 1;
@@ -68,7 +76,7 @@ public class LinkedListDeque <Var> {
         }
     /** returns whether a deque is empty or not */
     public boolean isEmpty() {
-        if (size()== 0) {
+        if (size == 0) {
             return true;
         }
         return false;
@@ -85,9 +93,9 @@ public class LinkedListDeque <Var> {
     }
 
     /** Removes and returns the item at the front of the Deque. If no such item exists, returns null. */
-     public Var removeFirst() {
+     public Item removeFirst() {
         if (sentinel.front.item != null) {
-            Var removeditem = sentinel.front.item;
+            Item removeditem = sentinel.front.item;
             sentinel.front = sentinel.front.next;
             size -= 1;
             return removeditem;
@@ -95,9 +103,9 @@ public class LinkedListDeque <Var> {
         return null;
     }
     /** Removes and returns the item at the back of the Deque. If no such item exists, returns null. */
-    public Var removeLast() {
+    public Item removeLast() {
          if (sentinel.back.item != null) {
-             Var removeditem = sentinel.back.item;
+             Item removeditem = sentinel.back.item;
              sentinel.back = sentinel.back.before;
              sentinel.back.next = null;
              size -= 1;
@@ -107,8 +115,8 @@ public class LinkedListDeque <Var> {
     }
 
     /** Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth. If no such item exists, returns null. */
-    public Var get(int index) {
-        if (index > size()) {
+    public Item get(int index) {
+        if (index > size) {
             return null;
         }
         int k = 0;
@@ -120,7 +128,7 @@ public class LinkedListDeque <Var> {
         return p.item;
     }
     /** same as get(int index) but uses recursion */
-    public Var getRecursive(int index) {
+    public Item getRecursive(int index) {
         ItemNode p = sentinel.front;
         ItemNode k = sentinel.front;
         if (index > size) {
