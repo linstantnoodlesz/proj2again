@@ -53,19 +53,23 @@ public class LinkedListDeque<Item> {
     /** adds some x to the front of the list */
     public void addFirst(Item x) {
         ItemNode newFront = new ItemNode(x, sentinel.front, null);
-        sentinel.front = newFront;
-        if (size == 0) {
-            sentinel.back = sentinel.front;
+        if (size != 0) {
+            sentinel.front.before = newFront;
+        } else {
+            sentinel.back = newFront;
         }
+        sentinel.front = newFront;
         size++;
     }
     /** adds some x to the back of the list */
     public void addLast(Item x) {
         ItemNode newLast = new ItemNode(x, null, sentinel.back);
-        sentinel.back = newLast;
-        if (size == 0) {
-            sentinel.front = sentinel.back;
+        if (size != 0) {
+            sentinel.back.next = newLast;
+        } else {
+            sentinel.front = newLast;
         }
+        sentinel.back = newLast;
         size++;
         }
 
@@ -105,7 +109,9 @@ public class LinkedListDeque<Item> {
          }
          Item removeditem = sentinel.back.item;
          sentinel.back = sentinel.back.before;
-         sentinel.back.next = null;
+         if (sentinel.back != null) {
+             sentinel.back.next = null;
+         }
          size -= 1;
          return removeditem;
     }
