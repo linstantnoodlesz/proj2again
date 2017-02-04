@@ -55,6 +55,7 @@ public class ArrayDeque<Var> {
             front = (front - 1 + items.length) % items.length;
             items[front] = x;
         }
+        back++;
         size += 1;
     }
 
@@ -63,8 +64,8 @@ public class ArrayDeque<Var> {
         if (size == items.length) {
             resize(size * 2);
         }
-        back = back % items.length;
         items[back] = x;
+        back++;
         size += 1;
     }
 
@@ -83,6 +84,7 @@ public class ArrayDeque<Var> {
         }
         Var removeditem = items[front];
         front = (front + 1) % items.length;
+        back--;
         size -= 1;
         return removeditem;
     }
@@ -93,8 +95,8 @@ public class ArrayDeque<Var> {
             return null;
         }
         Var removeditem = items[back];
-        back = (back - 1 + items.length) % items.length;
         items[back] = null;
+        back--;
         size -= 1;
         return removeditem;
     }
