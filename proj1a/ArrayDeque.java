@@ -41,10 +41,9 @@ public class ArrayDeque<Item> {
         if (isEmpty()) {
             items[front] = x;
         }
-        else {
-            front = (front - 1 + items.length) % items.length;
-            items[front] = x;
-        }
+
+        front = (front - 1 + items.length) % items.length;
+        items[front] = x;
         back++;
         size += 1;
     }

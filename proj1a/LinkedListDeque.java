@@ -3,7 +3,7 @@
  */
 
 /** creates LinkedListDeque, which is a double ended queue formed with LinkedLists */
-public class LinkedListDeque <Item> {
+public class LinkedListDeque<Item> {
     private class ItemNode {
         public Item item;
         public ItemNode next;
@@ -86,7 +86,7 @@ public class LinkedListDeque <Item> {
         if (isEmpty()) {
             return null;
         }
-        Item removeditem = sentinel.front.item;
+        Item removeditem = sentinel.getFront().item;
         sentinel.front = sentinel.front.next;
         size -= 1;
         return removeditem;
@@ -97,21 +97,22 @@ public class LinkedListDeque <Item> {
          if (isEmpty()) {
              return null;
          }
-         Item removeditem = sentinel.back.item;
+         Item removeditem = sentinel.getBack().item;
          sentinel.back = sentinel.back.before;
-         sentinel.back.next = null;
+         sentinel.getBack().next = null;
          size -= 1;
          return removeditem;
     }
 
-    /** Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth. If no such item exists, returns null. */
+    /** Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth.
+     * If no such item exists, returns null. */
     public Item get(int index) {
         if (index > size) {
             return null;
         }
         int k = 0;
         ItemNode p = sentinel.front;
-        while (k != index) {
+        while (k < index) {
             p = p.next;
             k++;
         }
