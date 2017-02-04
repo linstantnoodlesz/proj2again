@@ -96,11 +96,11 @@ public class LinkedListDeque <Item> {
          if (isEmpty()) {
              return null;
          }
-        Item removeditem = sentinel.back.item;
-        sentinel.back = sentinel.back.before;
-        sentinel.back.next = null;
-        size -= 1;
-        return removeditem;
+         Item removeditem = sentinel.back.item;
+         sentinel.back = sentinel.back.before;
+         sentinel.back.next = null;
+         size -= 1;
+         return removeditem;
     }
 
     /** Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth. If no such item exists, returns null. */
