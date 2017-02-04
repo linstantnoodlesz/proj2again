@@ -52,21 +52,21 @@ public class LinkedListDeque<Item> {
 
     /** adds some x to the front of the list */
     public void addFirst(Item x) {
-        if (isEmpty()) {
-            sentinel.back = sentinel.front;
-        }
         ItemNode newFront = new ItemNode(x, sentinel.front, null);
         sentinel.front = newFront;
-        size += 1;
+        if (size == 0) {
+            sentinel.back = sentinel.front;
+        }
+        size++;
     }
     /** adds some x to the back of the list */
     public void addLast(Item x) {
-        if (isEmpty()) {
-            sentinel.front = sentinel.back;
-        }
         ItemNode newLast = new ItemNode(x, null, sentinel.back);
         sentinel.back = newLast;
-        size += 1;
+        if (size == 0) {
+            sentinel.front = sentinel.back;
+        }
+        size++;
         }
 
     /** returns whether a deque is empty or not */
