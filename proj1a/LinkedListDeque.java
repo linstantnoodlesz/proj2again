@@ -86,7 +86,7 @@ public class LinkedListDeque<Item> {
         if (isEmpty()) {
             return null;
         }
-        Item removeditem = sentinel.getFront().item;
+        Item removeditem = sentinel.front.item;
         sentinel.front = sentinel.front.next;
         size -= 1;
         return removeditem;
@@ -97,9 +97,9 @@ public class LinkedListDeque<Item> {
          if (isEmpty()) {
              return null;
          }
-         Item removeditem = sentinel.getBack().item;
+         Item removeditem = sentinel.back.item;
          sentinel.back = sentinel.back.before;
-         sentinel.getBack().next = null;
+         sentinel.back.next = null;
          size -= 1;
          return removeditem;
     }
