@@ -34,12 +34,13 @@ public class ArrayDeque<Item> {
         Item[] k = (Item[]) new Object[capacity];
         System.arraycopy(items, front + 1, k, (k.length - size) / 2, size);
         items = k;
+        front = items.length / 2 - size / 2 - 1;
+        back = items.length / 2 + (size / 2);
     }
     /** Adds an item to the front of the Deque. */
     public void addFirst(Item x) {
         if (front == -1) {
             resize(items.length * 2);
-            front = items.length / 2 - size / 2 - 1;
         }
         items[front] = x;
         front--;
@@ -50,7 +51,6 @@ public class ArrayDeque<Item> {
     public void addLast(Item x) {
         if (back == items.length) {
             resize(items.length * 2);
-            back = items.length / 2 + (size / 2);
         }
         items[back] = x;
         back++;
@@ -71,7 +71,7 @@ public class ArrayDeque<Item> {
         if (isEmpty()) {
             return null;
         }
-        Item removeditem = get(front + 1);
+        Item removeditem = get(0);
         items[front + 1] = null;
         front++;
         size--;
@@ -83,7 +83,7 @@ public class ArrayDeque<Item> {
         if (isEmpty()) {
             return null;
         }
-        Item removeditem = get(back - 1);
+        Item removeditem = get(size - 1);
         items[back - 1] = null;
         back--;
         size--;
