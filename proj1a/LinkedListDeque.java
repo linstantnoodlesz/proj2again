@@ -106,10 +106,11 @@ public class LinkedListDeque<Item> {
         return removeditem;
     }
 
-    /** Removes and returns the item at the back of the Deque. If no such item exists, returns null. */
+    /** Removes and returns the item at the back of the Deque.
+     * If no such item exists, returns null. */
     public Item removeLast() {
         if (isEmpty()) {
-             return null;
+            return null;
         }
         Item removeditem = sentinel.back.item;
         sentinel.back = sentinel.back.before;
