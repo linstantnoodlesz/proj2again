@@ -79,22 +79,27 @@ public class LinkedListDequeTest {
 		printTestStatus(passed);
 	}
 
-	public static void getTest() {
-
-		LinkedListDeque.addLast(0)
-		LinkedListDeque.removeFirst()     ==> 0
-		LinkedListDeque.addLast(3)
-		LinkedListDeque.addFirst(4)
-		LinkedListDeque.get(1)
-		LinkedListDeque.removeFirst()     ==> 4
-		LinkedListDeque.addFirst(7)
-		LinkedListDeque.removeLast()      ==> 3
-		LinkedListDeque.removeLast()
+	public static void aDTest() {
+		ArrayDeque<Double> d = new ArrayDeque<>();
+		d.addFirst(2.0);
+		d.addFirst(3.0);
+		d.addFirst(4.0);
+		d.addFirst(5.0);
+		d.addFirst(6.0);
+//		d.addLast(2.0);
+//		d.addLast(2.0);
+//		d.addLast(2.0);
+//		d.addLast(2.0);
+//		d.addLast(6.0);
+//		d.printDeque();
+//		System.out.println();
+		d.printDeque();
 	}
 
 	public static void main(String[] args) {
 		System.out.println("Running tests.\n");
 		addIsEmptySizeTest();
 		addRemoveTest();
+		aDTest();
 	}
 } 

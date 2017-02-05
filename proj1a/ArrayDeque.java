@@ -17,7 +17,7 @@ public class ArrayDeque<Item> {
     public ArrayDeque() {
         items = (Item[]) new Object[8];
         front = (items.length / 2) - 1;
-        back = (items.length / 2) + 1;
+        back = (items.length / 2);
         size = 0;
     }
 
@@ -32,15 +32,14 @@ public class ArrayDeque<Item> {
     /** Resizes an array to target capacity */
     private void resize(int capacity) {
         Item[] k = (Item[]) new Object[capacity];
-        System.arraycopy(items, front, k, items.length - (size / 2), size);
+        System.arraycopy(items, front + 1, k, (k.length - size) / 2, size);
         items = k;
-        front = items.length - (size / 2);
-        back = items.length + (size / 2);
     }
     /** Adds an item to the front of the Deque. */
     public void addFirst(Item x) {
         if (front == -1) {
-            resize(size * 2);
+            resize(items.length * 2);
+            front = items.length / 2 - size / 2 - 1;
         }
         items[front] = x;
         front--;
@@ -50,11 +49,13 @@ public class ArrayDeque<Item> {
     /** Adds an item to the back of the Deque. */
     public void addLast(Item x) {
         if (back == items.length) {
-            resize(size * 2);
+            resize(items.length * 2);
+            back = items.length / 2 + (size / 2);
         }
         items[back] = x;
         back++;
         size++;
+        System.out.println("Size is now: " + size);
     }
 
     /** Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth.
@@ -72,7 +73,7 @@ public class ArrayDeque<Item> {
             return null;
         }
         Item removeditem = get(front);
-        items[front] = null;
+        items[front + 1] = null;
         front++;
         size--;
         return removeditem;
@@ -84,7 +85,8 @@ public class ArrayDeque<Item> {
             return null;
         }
         Item removeditem = get(back);
-        items[back] = null;
+        System.out.println("back pos is: " + back);
+        items[back - 1] = null;
         back--;
         size--;
         return removeditem;
