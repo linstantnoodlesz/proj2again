@@ -64,7 +64,7 @@ public class ArrayDeque<Item> {
         if (index > size) {
             return null;
         }
-        return items[index];
+        return items[front + 1 + index];
     }
 
     /** Removes and returns the item at the front of the Deque. If no item exists, return null */
