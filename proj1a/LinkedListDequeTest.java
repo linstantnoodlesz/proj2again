@@ -81,21 +81,21 @@ public class LinkedListDequeTest {
 
 	public static void aDTest() {
 		ArrayDeque<Double> d = new ArrayDeque<>();
-		d.addFirst(2.0);
-		d.addFirst(3.0);
-		d.addFirst(4.0);
-		d.addFirst(5.0);
-		d.addFirst(6.0);
-//		d.addLast(2.0);
-//		d.addLast(2.0);
-//		d.addLast(2.0);
-//		d.addLast(2.0);
-//		d.addLast(6.0);
+		d.addLast(2.0);
+		d.addLast(2.0);
+		d.addLast(2.0);
+		d.addLast(2.0);
+		d.addLast(6.0);
+		d.printDeque();
+		System.out.println();
 		System.out.println(d.removeFirst());
 		System.out.println(d.removeLast());
-		d.printDeque();
+		System.out.println(d.removeLast());
+		System.out.println(d.removeLast());
+		System.out.println(d.removeLast());
+//		System.out.println(d.removeLast());
 //		System.out.println();
-//		d.printDeque();
+		d.printDeque();
 	}
 
 	public static void main(String[] args) {
