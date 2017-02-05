@@ -85,14 +85,14 @@ public class LinkedListDequeTest {
 		d.addFirst(3.0);
 		d.addFirst(4.0);
 		d.addFirst(5.0);
-		d.addFirst(6.0);
 //		d.addLast(2.0);
 //		d.addLast(2.0);
 //		d.addLast(2.0);
 //		d.addLast(2.0);
 //		d.addLast(6.0);
-//		d.printDeque();
-//		System.out.println();
+		d.removeFirst();
+		d.printDeque();
+		System.out.println();
 		d.printDeque();
 	}
 

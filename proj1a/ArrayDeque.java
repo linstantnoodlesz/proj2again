@@ -55,7 +55,6 @@ public class ArrayDeque<Item> {
         items[back] = x;
         back++;
         size++;
-        System.out.println("Size is now: " + size);
     }
 
     /** Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth.
@@ -72,7 +71,7 @@ public class ArrayDeque<Item> {
         if (isEmpty()) {
             return null;
         }
-        Item removeditem = get(front);
+        Item removeditem = get(front + 1);
         items[front + 1] = null;
         front++;
         size--;
@@ -84,8 +83,7 @@ public class ArrayDeque<Item> {
         if (isEmpty()) {
             return null;
         }
-        Item removeditem = get(back);
-        System.out.println("back pos is: " + back);
+        Item removeditem = get(back - 1);
         items[back - 1] = null;
         back--;
         size--;
