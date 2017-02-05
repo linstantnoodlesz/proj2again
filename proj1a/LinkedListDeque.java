@@ -5,17 +5,17 @@
 /** creates LinkedListDeque, which is a double ended queue formed with LinkedLists */
 public class LinkedListDeque<Item> {
     private class ItemNode {
-        public Item item;
-        public ItemNode next;
-        public ItemNode before;
+        private Item item;
+        private ItemNode next;
+        private ItemNode before;
 
-        public ItemNode() {
+        ItemNode() {
             item = null;
             next = null;
             before = null;
         }
 
-        public ItemNode(Item i, ItemNode n, ItemNode b) {
+        ItemNode(Item i, ItemNode n, ItemNode b) {
             item = i;
             next = n;
             before = b;
@@ -71,7 +71,7 @@ public class LinkedListDeque<Item> {
         }
         sentinel.back = newLast;
         size++;
-        }
+    }
 
     /** returns whether a deque is empty or not */
     public boolean isEmpty() {
@@ -91,8 +91,9 @@ public class LinkedListDeque<Item> {
         }
     }
 
-    /** Removes and returns the item at the front of the Deque. If no such item exists, returns null. */
-     public Item removeFirst() {
+    /** Removes and returns the item at the front of the Deque.
+     * If no such item exists, returns null. */
+    public Item removeFirst() {
         if (isEmpty()) {
             return null;
         }
@@ -107,16 +108,16 @@ public class LinkedListDeque<Item> {
 
     /** Removes and returns the item at the back of the Deque. If no such item exists, returns null. */
     public Item removeLast() {
-         if (isEmpty()) {
+        if (isEmpty()) {
              return null;
-         }
-         Item removeditem = sentinel.back.item;
-         sentinel.back = sentinel.back.before;
-         if (sentinel.back != null) {
-             sentinel.back.next = null;
-         }
-         size -= 1;
-         return removeditem;
+        }
+        Item removeditem = sentinel.back.item;
+        sentinel.back = sentinel.back.before;
+        if (sentinel.back != null) {
+            sentinel.back.next = null;
+        }
+        size -= 1;
+        return removeditem;
     }
 
     /** Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth.
