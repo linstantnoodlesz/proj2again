@@ -13,19 +13,21 @@ public class TestArrayDeque1B {
         boolean value_agree = true;
         while (value_agree) {
             student.addFirst(input);
-            student.addFirst(input);
+            soln.addFirst(input);
+            assertEquals(soln.get(0), student.get(0));
             input = StdRandom.uniform(10);
+            student.addFirst(input);
             soln.addFirst(input);
-            soln.addFirst(input);
+            assertEquals(soln.get(0), student.get(0));
             input = StdRandom.uniform(10);
             student.addLast(input);
             soln.addLast(input);
-            student.removeLast();
-            soln.removeLast();
-            student.removeFirst();
-            soln.removeFirst();
-            assertEquals(student.get(0), soln.get(0));
-
+            input = StdRandom.uniform(10);
+            student.addLast(input);
+            soln.addLast(input);
+            assertEquals(soln.removeFirst(), student.removeFirst());
+            assertEquals(soln.removeLast(), student.removeLast());
+            }
         }
-    }
+
 }
