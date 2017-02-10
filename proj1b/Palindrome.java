@@ -49,4 +49,16 @@ public class Palindrome {
         }
         return true;
     }
+
+    /** return true if the word is a palindrome using character comparison test
+    provided by the CharacterComparator passed in as argument cc */
+    public static boolean isPalindrome(String word, CharacterComparator cc) {
+        int k = 0;
+        int i = word.length();
+        while (k != i / 2) {
+
+        }
+        return true;
+    }
+
 }
