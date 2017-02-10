@@ -1,3 +1,5 @@
+import org.junit.Test;
+
 /**
  * Created by gilbertlin on 2/9/17.
  */
@@ -54,11 +56,14 @@ public class Palindrome {
     provided by the CharacterComparator passed in as argument cc */
     public static boolean isPalindrome(String word, CharacterComparator cc) {
         int k = 0;
-        int i = word.length();
-        while (k != i / 2) {
-
+        int i = word.length() - 1;
+        while (k != (word.length() / 2)) {
+            if (cc.equalChars(wordToDeque(word).get(k), wordToDeque(word).get(i)) == false) {
+                return false;
+            }
+            k++;
+            i--;
         }
         return true;
     }
-
 }
