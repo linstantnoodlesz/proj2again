@@ -54,7 +54,7 @@ public class Palindrome {
     public static boolean isPalindrome(String word, CharacterComparator cc) {
         int k = 0;
         int i = word.length() - 1;
-        while (k != (word.length() / 2)) {
+        while (k != (word.length() - 1) / 2) {
             if (!cc.equalChars(wordToDeque(word).get(k), wordToDeque(word).get(i))) {
                 return false;
             }
