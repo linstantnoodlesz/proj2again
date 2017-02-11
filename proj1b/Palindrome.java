@@ -1,5 +1,3 @@
-import org.junit.Test;
-
 /**
  * Created by gilbertlin on 2/9/17.
  */
@@ -15,8 +13,7 @@ public class Palindrome {
     private static void adder(String word, Deque deque) {
         if (word.length() == 0) {
             return;
-        }
-        else {
+        } else {
             deque.addFirst(word.charAt(word.length() - 1));
             adder(word.substring(0, word.length() - 1), deque);
         }
@@ -58,7 +55,7 @@ public class Palindrome {
         int k = 0;
         int i = word.length() - 1;
         while (k != (word.length() / 2)) {
-            if (cc.equalChars(wordToDeque(word).get(k), wordToDeque(word).get(i)) == false) {
+            if (!cc.equalChars(wordToDeque(word).get(k), wordToDeque(word).get(i))) {
                 return false;
             }
             k++;

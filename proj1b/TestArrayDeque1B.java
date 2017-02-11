@@ -32,7 +32,6 @@ public class TestArrayDeque1B {
             string = string + "\naddLast(" + input + ")";
             assertEquals(string + "\nremoveLast()", soln.removeFirst(), student.removeFirst());
             assertEquals(string + "\nremoveFirst()", soln.removeLast(), student.removeLast());
-            }
         }
-
+    }
 }
