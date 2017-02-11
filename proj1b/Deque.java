@@ -3,7 +3,7 @@
  */
 
 /** contains methods shared by ArrayDeque and LinkedListDeque */
-public interface Deque <Item> {
+public interface Deque<Item> {
     void addFirst(Item x);
     void addLast(Item x);
     boolean isEmpty();
