@@ -1,6 +1,4 @@
-/**
- * Created by gilbertlin on 2/6/17.
- */
+/*** Created by gilbertlin on 2/6/17. */
 import static org.junit.Assert.*;
 import org.junit.Test;
 
@@ -30,8 +28,8 @@ public class TestArrayDeque1B {
             student.addLast(input);
             soln.addLast(input);
             string = string + "\naddLast(" + input + ")";
-            assertEquals(string + "\nremoveLast()", soln.removeFirst(), student.removeFirst());
-            assertEquals(string + "\nremoveFirst()", soln.removeLast(), student.removeLast());
+            assertEquals(string + "\nremoveLast()", soln.removeLast(), student.removeLast());
+            assertEquals(string + "\nremoveFirst()", soln.removeFirst(), student.removeFirst());
         }
     }
 }
