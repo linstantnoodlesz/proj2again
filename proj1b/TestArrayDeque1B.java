@@ -11,7 +11,7 @@ public class TestArrayDeque1B {
         while (true) {
             student.addFirst(input);
             soln.addFirst(input);
-            String string = "addFirst(" + input + ")";
+            String string = "\naddFirst(" + input + ")";
 
             input = StdRandom.uniform(10);
             student.addFirst(input);
