@@ -12,7 +12,7 @@ public class Palindrome {
         return newDeque;
     }
     /** helper method for wordToDeque */
-    public static void adder(String word, Deque deque) {
+    private static void adder(String word, Deque deque) {
         if (word.length() == 0) {
             return;
         }
@@ -22,13 +22,13 @@ public class Palindrome {
         }
     }
     /** adds a word in reverse order letter by letter to a Deque */
-    public static Deque<Character> wordToDequeBack(String word) {
+    private static Deque<Character> wordToDequeBack(String word) {
         Deque<Character> newDeque = new ArrayDequeSolution<>();
         backwardsadder(word, newDeque);
         return newDeque;
     }
     /** helper method for wordtoDequeBack */
-    public static void backwardsadder(String word, Deque deque) {
+    private static void backwardsadder(String word, Deque deque) {
         if (word.length() == 0) {
             return;
         } else {
