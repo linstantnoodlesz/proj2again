@@ -41,5 +41,4 @@ public class TestArrayDeque1B {
             string += "\nremoveLast()";
         }
     }
-
 }
