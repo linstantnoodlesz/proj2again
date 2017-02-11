@@ -8,8 +8,7 @@ public class TestArrayDeque1B {
         int input = StdRandom.uniform(10);
         StudentArrayDeque student = new StudentArrayDeque();
         ArrayDequeSolution soln = new ArrayDequeSolution();
-        boolean value_agree = true;
-        while (value_agree) {
+        while (true) {
             student.addFirst(input);
             soln.addFirst(input);
             String string = "addFirst(" + input + ")";
@@ -28,8 +27,11 @@ public class TestArrayDeque1B {
             student.addLast(input);
             soln.addLast(input);
             string = string + "\naddLast(" + input + ")";
+
             assertEquals(string + "\nremoveFirst()", soln.removeFirst(), student.removeFirst());
+            string += "\nremoveFirst()";
             assertEquals(string + "\nremoveLast()", soln.removeLast(), student.removeLast());
+            string += "\nremoveLast()";
         }
     }
 }
