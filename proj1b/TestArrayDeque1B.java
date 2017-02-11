@@ -28,10 +28,10 @@ public class TestArrayDeque1B {
             soln.addLast(input);
             string = string + "\naddLast(" + input + ")";
 
-            assertEquals(string + "\nremoveFirst()", soln.removeFirst(), student.removeFirst());
-            string += "\nremoveFirst()";
             assertEquals(string + "\nremoveLast()", soln.removeLast(), student.removeLast());
             string += "\nremoveLast()";
+            assertEquals(string + "\nremoveFirst()", soln.removeFirst(), student.removeFirst());
+            string += "\nremoveFirst()";
         }
     }
 }
