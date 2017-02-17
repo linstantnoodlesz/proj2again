@@ -4,8 +4,12 @@ ArrayDeque:
 
 Q: Give an example of at least one idea from the staff solution that would have made your solution better (if any).
 
+<<<<<<< HEAD
 A: The staff solution used helper methods to navigate through the Deque, which really made the code a lot more concise,
 since it abstracted the mathematics of the list away.
+=======
+A: 
+>>>>>>> 14cab644a1ef004f3c39443420437b851cda5685
 
 Q: What's something you felt proud of in your code, if anything?
 
@@ -13,9 +17,13 @@ A:
 
 Q: What's something that was particularly inelegant in your code, if anything?
 
+<<<<<<< HEAD
 A: I did not like my resize method; I thought that the arraycopy method wasn't the cleanest, and I probably ran into
 a lot of bugs because of nuances of arraycopy. Because I felt that the resize method was not clean, I think some tests
 from the autograder did not pass.
+=======
+A:
+>>>>>>> 14cab644a1ef004f3c39443420437b851cda5685
 
 Q: What do you wish you would have known before writing ArrayDeque, if anything?
 
@@ -23,8 +31,12 @@ A:
 
 Q: If you wrote ArrayDeque again, what would you do differently, if anything?
 
+<<<<<<< HEAD
 A: I would try to rewrite the resize method without using arraycopy and try to rework how my implementation navigates
 through the ArrayDeque to be more similar to the staff solution.
+=======
+A:
+>>>>>>> 14cab644a1ef004f3c39443420437b851cda5685
 
 -----
 
@@ -32,6 +44,7 @@ LinkedListDeque:
 
 Q: Give an example of at least one idea from the staff solution that would have made your solution better (if any).
 
+<<<<<<< HEAD
 A: The staff solution does not hard code for edge cases; the implementation works so that the sentinel node is able to
 handle these edge cases.
 
@@ -44,6 +57,17 @@ Q: What's something that was particularly inelegant in your code, if anything?
 
 A: I did have to hard code some edge cases in my addFirst/addLast methods, because my implementation of the Sentinel
 node was not able to handle those cases.
+=======
+A: 
+
+Q: What's something you felt proud of in your code, if anything?
+
+A:
+
+Q: What's something that was particularly inelegant in your code, if anything?
+
+A:
+>>>>>>> 14cab644a1ef004f3c39443420437b851cda5685
 
 Q: What do you wish you would have known before writing ArrayDeque, if anything?
 
@@ -51,8 +75,12 @@ A:
 
 Q: If you wrote LinkedListDeque again, what would you do differently, if anything?
 
+<<<<<<< HEAD
 A: I would try to make my LinkedListDeque circular, which Sentinel Node as the same class as the regular Node of the
 LinkedListDeque.
+=======
+A:
+>>>>>>> 14cab644a1ef004f3c39443420437b851cda5685
 
 -----
 
