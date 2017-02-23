@@ -24,7 +24,7 @@ public class GuitarString {
     }
 
     /* Pluck the guitar string by replacing the buffer with white noise. */
-    public void pluck() {
+    public void pluck() throws Exception {
         // TODO: Dequeue everything in the buffer, and replace it with random numbers
         //       between -0.5 and 0.5. You can get such a number by using:
         //       double r = Math.random() - 0.5;
@@ -39,7 +39,7 @@ public class GuitarString {
     /* Advance the simulation one time step by performing one iteration of
      * the Karplus-Strong algorithm. 
      */
-    public void tic() {
+    public void tic() throws Exception {
         // TODO: Dequeue the front sample and enqueue a new sample that is
         //       the average of the two multiplied by the DECAY factor.
         //       Do not call StdAudio.play().
