@@ -60,7 +60,7 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
      * Return oldest item, but don't remove it.
      */
     public T peek() {
-        return queue[last];
+        return queue[first];
     }
 
     public class Iterable implements Iterator<T> {
