@@ -1,4 +1,4 @@
-// TODO: Make sure to make this class a part of the synthesizer package
+//TODO: Make sure to make this class a part of the synthesizer package
 package synthesizer;
 //Make sure this class is public
 public class GuitarString {
@@ -19,7 +19,7 @@ public class GuitarString {
 
     /* Pluck the guitar string by replacing the buffer with white noise. */
     public void pluck() throws RuntimeException {
-        // TODO: Dequeue everything in the buffer, and replace it with random numbers between -0.5 and 0.5.
+        // TODO: Dequeue the buffer, and replace it with random numbers between -0.5 and 0.5.
         for (int i = 0; i < buffer.capacity(); i++) {
             buffer.dequeue();
             buffer.enqueue(Math.random() - 0.5);
@@ -30,9 +30,9 @@ public class GuitarString {
      * the Karplus-Strong algorithm. 
      */
     public void tic() throws RuntimeException {
-        // TODO: Dequeue the front sample and enqueue a new sample that is the average of the two * DECAY factor.
-        double d2 = buffer.peek();
+        // TODO: Dequeue front sample and enqueue a new sample.
         double d1 = buffer.dequeue();
+        double d2 = buffer.peek();
         buffer.enqueue(0.996 * (0.5) * (d1 + d2));
     }
 
