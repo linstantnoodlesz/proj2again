@@ -26,7 +26,7 @@ public class GuitarString {
     /* Advance the simulation one time step by performing one iteration of
      * the Karplus-Strong algorithm. 
      */
-    public void tic() throws RuntimeException {
+    public void tic() {
         double d1 = buffer.dequeue();
         double d2 = buffer.peek();
         buffer.enqueue(0.996 * (0.5) * (d1 + d2));
