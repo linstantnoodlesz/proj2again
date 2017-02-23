@@ -39,7 +39,7 @@ public class GuitarString {
     /* Advance the simulation one time step by performing one iteration of
      * the Karplus-Strong algorithm. 
      */
-    public void tic() throws Exception {
+    public void tic() throws RuntimeException {
         // TODO: Dequeue the front sample and enqueue a new sample that is
         //       the average of the two multiplied by the DECAY factor.
         //       Do not call StdAudio.play().
