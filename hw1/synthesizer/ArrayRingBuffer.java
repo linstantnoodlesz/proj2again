@@ -1,5 +1,4 @@
 // TODO: Make sure to make this class a part of the synthesizer package
-// package <package name>;
 package synthesizer;
 import java.util.Iterator;
 //TODO: Make sure to make this class and all of its methods public
@@ -18,10 +17,6 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
      */
     public ArrayRingBuffer(int capacity) {
         // TODO: Create new array with capacity elements.
-        //       first, last, and fillCount should all be set to 0.
-        //       this.capacity should be set appropriately. Note that the local variable
-        //       here shadows the field we inherit from synthesizer.AbstractBoundedQueue, so
-        //       you'll need to use this.capacity to set the capacity.
         first = 0;
         last = 0;
         fillCount = 0;
@@ -58,7 +53,7 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
             first = 0;
         }
         if (isEmpty()) {
-            throw new RuntimeException("Ring Buffer Underflow" );
+            throw new RuntimeException("Ring Buffer Underflow");
         }
         T item = queue[first];
         queue[first] = null;

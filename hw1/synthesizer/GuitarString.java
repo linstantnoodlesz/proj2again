@@ -1,8 +1,5 @@
 // TODO: Make sure to make this class a part of the synthesizer package
 package synthesizer;
-
-import java.lang.reflect.Array;
-
 //Make sure this class is public
 public class GuitarString {
     /** Constants. Do not change. In case you're curious, the keyword final means
@@ -16,20 +13,13 @@ public class GuitarString {
 
     /* Create a guitar string of the given frequency.  */
     public GuitarString(double frequency) {
-        // TODO: Create a buffer with capacity = SR / frequency. You'll need to
-        //       cast the result of this divsion operation into an int. For better
-        //       accuracy, use the Math.round() function before casting.
-        //       Your buffer should be initially filled with zeros.
+        // TODO: Create a buffer with capacity = SR / frequency.
         buffer = new ArrayRingBuffer((int) Math.round(SR / frequency));
     }
 
     /* Pluck the guitar string by replacing the buffer with white noise. */
     public void pluck() throws RuntimeException {
-        // TODO: Dequeue everything in the buffer, and replace it with random numbers
-        //       between -0.5 and 0.5. You can get such a number by using:
-        //       double r = Math.random() - 0.5;
-        //
-        //       Make sure that your random numbers are different from each other.
+        // TODO: Dequeue everything in the buffer, and replace it with random numbers between -0.5 and 0.5.
         for (int i = 0; i < buffer.capacity(); i++) {
             buffer.dequeue();
             buffer.enqueue(Math.random() - 0.5);
@@ -40,9 +30,7 @@ public class GuitarString {
      * the Karplus-Strong algorithm. 
      */
     public void tic() throws RuntimeException {
-        // TODO: Dequeue the front sample and enqueue a new sample that is
-        //       the average of the two multiplied by the DECAY factor.
-        //       Do not call StdAudio.play().
+        // TODO: Dequeue the front sample and enqueue a new sample that is the average of the two * DECAY factor.
         double d2 = buffer.peek();
         double d1 = buffer.dequeue();
         buffer.enqueue(0.996 * (0.5) * (d1 + d2));

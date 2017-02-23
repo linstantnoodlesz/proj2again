@@ -5,7 +5,7 @@ import java.util.Iterator;
 /**
  * Created by gilbertlin on 2/21/17.
  */
-public interface BoundedQueue<T> extends Iterable<T>{
+public interface BoundedQueue<T> extends Iterable<T> {
     int capacity(); // return size of the buffer
     int fillCount();  // return number of items currently in the buffer
 
