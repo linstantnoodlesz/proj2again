@@ -13,6 +13,9 @@ public class GuitarString {
     /* Create a guitar string of the given frequency.  */
     public GuitarString(double frequency) {
         buffer = new ArrayRingBuffer((int) Math.round(SR / frequency));
+        for (int i = 0; i < buffer.capacity(); i++) {
+            buffer.enqueue(0.0);
+        }
     }
 
     /* Pluck the guitar string by replacing the buffer with white noise. */
@@ -29,7 +32,7 @@ public class GuitarString {
     public void tic() {
         double d1 = buffer.dequeue();
         double d2 = buffer.peek();
-        buffer.enqueue(0.996 * (0.5) * (d1 + d2));
+        buffer.enqueue(DECAY * (0.5) * (d1 + d2));
     }
 
     /* Return the double at the front of the buffer. */

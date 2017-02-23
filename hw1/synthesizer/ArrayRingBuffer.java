@@ -60,6 +60,9 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
      * Return oldest item, but don't remove it.
      */
     public T peek() {
+        if (first == capacity) {
+            first = 0;
+        }
         return queue[first];
     }
 
