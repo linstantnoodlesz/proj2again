@@ -5,12 +5,13 @@ import java.util.Iterator;
 //TODO: Make sure to make this class and all of its methods public
 //TODO: Make sure to make this class extend synthesizer.AbstractBoundedQueue<t>
 public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
+
     /* Index for the next dequeue or peek. */
     private int first;            // index for the next dequeue or peek
     /* Index for the next enqueue. */
     private int last;
     /* Array for storing the buffer data. */
-    private T[] rb;
+    private T[] queue;
 
     /**
      * Create a new ArrayRingBuffer with the given capacity.
@@ -25,7 +26,7 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
         last = 0;
         fillCount = 0;
         this.capacity = capacity;
-
+        queue = (T[]) new Object[capacity];
     }
 
     /**
@@ -35,7 +36,12 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
      */
     public void enqueue(T x) {
         // TODO: Enqueue the item. Don't forget to increase fillCount and update last.
-
+        if (last == capacity) {
+            last = 0;
+        }
+        queue[last] = x;
+        fillCount++;
+        last++;
     }
 
     /**
@@ -44,7 +50,15 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
      * covered Monday.
      */
     public T dequeue() {
-        // TODO: Dequeue the first item. Don't forget to decrease fillCount and update 
+        // TODO: Dequeue the first item. Don't forget to decrease fillCount and update
+        if (first == capacity) {
+            first = 0;
+        }
+        T item = queue[first];
+        queue[first] = null;
+        fillCount--;
+        first++;
+        return item;
     }
 
     /**
@@ -52,7 +66,25 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
      */
     public T peek() {
         // TODO: Return the first item. None of your instance variables should change.
+        return queue[last];
+    }
+    // TODO: When you get to part 5, implement the needed code to support iteration.
+    public class Iterable implements Iterator<T> {
+        private int current;
+        public Iterable() {
+            current = 0;
+        }
+        public boolean hasNext() {
+            return current < capacity;
+        }
+        public T next() {
+            T currentitem = queue[current];
+            current++;
+            return currentitem;
+        }
     }
 
-    // TODO: When you get to part 5, implement the needed code to support iteration.
+    public Iterator<T> iterator() {
+        return new Iterable();
+    }
 }
