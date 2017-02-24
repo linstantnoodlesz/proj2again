@@ -1,0 +1,40 @@
+Make sure that when you submit to gradescope that you put your design document in this folder.
+
+class Database:
+*/ allows for creation of tables and stores collection of tables made through the Table class */
+    public Database();
+
+
+class Table:
+*/ Table is implemented as a list of columns */
+    public Table(List<Column> columns);
+
+*/ Column class has attributes of columnName and a list holding items in the columns */
+    private class Column;
+
+*/ List of column names */
+    private String columnName;
+
+*/ list holding items */
+    private List items;
+
+*/ adds a row to to table and implements the insert command */
+    public void addRow(List<Object> row)
+
+*/ join operation of two tables; if they share columns, append the rows
+of the table where the values of shared columns are the same. If no shared values
+return empty table. If no shared columns, return Cartesian product of tables. */
+    public static Table joinTables(String name, Table table1, Table table2);
+
+*/ helper func for computing Cartesian product of two tables */
+    public static Table cartesianProduct(Table table1, Table table2);
+
+*/ Get a named column from a table */
+    public Column getColumn(String name);
+
+
+
+
+
+
+
